@@ -18,6 +18,9 @@ package org.jbpm.formModeler.kie.services.form.provider;
 import java.io.ByteArrayInputStream;
 import java.util.Map;
 
+import javax.inject.Inject;
+
+import org.jbpm.formModeler.kie.services.form.FormManagerService;
 import org.jbpm.formModeler.kie.services.form.ProcessDefinition;
 import org.jbpm.formModeler.kie.services.form.TaskDefinition;
 
@@ -66,5 +69,11 @@ public class InMemoryFormProvider extends FreemakerFormProvider {
     @Override
     protected String getFormExtension() {
         return ".ftl";
+    }
+
+    @Inject
+    @Override
+    public void setFormManagerService(FormManagerService formManagerService){
+        super.setFormManagerService(formManagerService);
     }
 }
